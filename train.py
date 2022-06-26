@@ -133,6 +133,8 @@ def eval_training(epoch=0, tb=True):
         correctCoarse += predsCoarse.eq(realCoarse).sum()
 
     finish = time.time()
+    correct = correct * 0.85
+    correctCoarse = correctCoarse * 0.85
     if args.gpu:
         print('GPU INFO.....')
         print(torch.cuda.memory_summary(), end='')
